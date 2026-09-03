@@ -12,36 +12,36 @@ fs.writeFile("sample.txt", "Hello, this is my file.", (err) => {
     console.log("File created successfully.");
 
     // READ FILE
-    fs.readFile("sample.txt", "utf8", (err, data) => {
-        console.log("Reading File...");
+    // fs.readFile("sample.txt", "utf8", (err, data) => {
+    //     console.log("Reading File...");
         
-        if (err) {
-            console.log("Error reading file:", err);
-            return;
-        }
+    //     if (err) {
+    //         console.log("Error reading file:", err);
+    //         return;
+    //     }
 
-        console.log("File content:", data);
+    //     console.log("File content:", data);
 
         // UPDATE FILE
-        fs.appendFile("sample.txt", "\nThis is updated content.", (err) => {
+        // fs.appendFile("sample.txt", "\nThis is updated content.", (err) => {
             
-            if (err) {
-                console.log("Error updating file:", err);
-                return;
-            }
+        //     if (err) {
+        //         console.log("Error updating file:", err);
+        //         return;
+        //     }
 
-            console.log("File updated successfully.");
+        //     console.log("File updated successfully.");
 
             // DELETE FILE
-            fs.unlink("sample.txt", (err) => {
+            // fs.unlink("sample.txt", (err) => {
 
-                if (err) {
-                    console.log("Error deleting file:", err);
-                    return;
-                }
+            //     if (err) {
+            //         console.log("Error deleting file:", err);
+            //         return;
+            //     }
 
-                console.log("File deleted successfully.");
-            });
+            //     console.log("File deleted successfully.");
+            // });
         });
     });
 });
