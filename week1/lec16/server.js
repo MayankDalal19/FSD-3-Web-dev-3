@@ -16,8 +16,8 @@ const apiMiddleWare=(req,res,next)=>{
         res.status(401).send("Unauthorised:Invalid API Key");
     }
 }
-app.use(apiMiddleWare);
-app.use(logMiddleWare);
+// app.use(apiMiddleWare); // global 
+// app.use(logMiddleWare);
 
 
 app.get("/",(req,res)=>{
@@ -26,7 +26,7 @@ app.get("/",(req,res)=>{
     res.send("Hello World")
 });
 
-app.get("/students",(req,res)=>{
+app.get("/students",logMiddleWare,apiMiddleWare,(req,res)=>{
     console.log("Hello students");
     
     res.send("Hello Students")
