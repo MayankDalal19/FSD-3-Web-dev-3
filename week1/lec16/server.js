@@ -1,13 +1,15 @@
 const express = require("express")
 const app = express();
 const PORT = 3000
+const morgan = require("morgan")
 
-const logMiddleWare=(req,res,next)=>{
-    console.log("Request Method:",req.method);
-    console.log("Request URL",req.url);
-    next()
+app.use(morgan("dev"));
+// const logMiddleWare=(req,res,next)=>{
+//     // console.log("Request Method:",req.method);
+//     console.log("Request URL",req.url,"Request Method:",req.method,"Date",new Date().toLocaleString());
+//     next()
       
-}
+// }
 
 const apiMiddleWare=(req,res,next)=>{
     if (req.query.API_KEY=="1234") {
@@ -16,8 +18,9 @@ const apiMiddleWare=(req,res,next)=>{
         res.status(401).send("Unauthorised:Invalid API Key");
     }
 }
-// app.use(apiMiddleWare); // global 
+app.use(apiMiddleWare); // global 
 // app.use(logMiddleWare);
+
 
 
 app.get("/",(req,res)=>{
@@ -26,7 +29,7 @@ app.get("/",(req,res)=>{
     res.send("Hello World")
 });
 
-app.get("/students",logMiddleWare,apiMiddleWare,(req,res)=>{
+app.get("/students",apiMiddleWare,(req,res)=>{
     console.log("Hello students");
     
     res.send("Hello Students")
