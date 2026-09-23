@@ -30,4 +30,17 @@ use("CollegeDB");
 // db.students.findOne();// returns First one document
 //from the collection
 
-db.students.find();
+// db.students.find();
+// db.students.find({name:"Mayank"})
+
+
+//update
+// db.students.updateOne({name:"Mayank"},{$set:{section:"FSD-A",marks:10}})
+
+// db.students.updateMany({section:"A"},{$set:{section:"FSD-A"}})
+
+
+
+// delete
+
+db.students.deleteOne({name:"Ansh"})
